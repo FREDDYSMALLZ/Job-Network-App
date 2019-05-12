@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -28,9 +28,11 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'CST-256 New Job Site') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -57,16 +59,14 @@
                                 </li>
                             @endif
 
-
                         @else
                          @if(Auth::user()->user_type=='employer')
 
                         <li>
-                            <a href="{{route('job.create')}}"><button class="btn btn-secondary">Post a job</button></a>
+                            <a href="{{route('job.create')}}">
+                                <button class="btn btn-outline-primary btn-block">Post a new job</button></a>
                         </li>
                         @endif
-
-                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 
@@ -91,10 +91,9 @@
                                     <a class="dropdown-item" href="{{route('my.job')}}">
                                         MyJobs
                                     </a>
-                                    <a class="dropdown-item" href="{{route('applicant')}}">Applicants</a>
+                                    <a class="dropdown-item" href="{{route('applicant')}}">Job Applicants</a>
 
                                 @else
-
 
                                     <a class="dropdown-item" href="{{route('user.profile')}}"
                                        >

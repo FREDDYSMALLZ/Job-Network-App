@@ -12,6 +12,8 @@
 // */
 //jobs
 
+use App\Job;
+
 Route::get('/','JobController@index');
 Route::get('/jobs/create','JobController@create')->name('job.create');
 Route::post('/jobs/create','JobController@store')->name('job.store');
@@ -76,7 +78,7 @@ Route::get('messages/{id}','MessageController@create')->name('message');
  Route::get('jobs/search',function(){
 
         $keyword = request('keyword');
-        $users = \App\Job::where('title','like','%'.$keyword.'%')
+        $users = Job::where('title','like','%'.$keyword.'%')
                 ->orWhere('position','like','%'.$keyword.'%')
                 ->limit(5)->get();
         return response()->json($users);

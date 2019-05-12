@@ -14,8 +14,7 @@ class JobController extends Controller
     public function __construct(){
         $this->middleware(['employer','verified'],['except'=>array('index','show','apply','allJobs','searchJobs')]);
     }
-    
-    
+
     public function index(){
     	$jobs = Job::latest()->limit(10)->where('status',1)->get();
         $companies = Company::get()->random(12);
@@ -42,7 +41,7 @@ class JobController extends Controller
     public function update(Request $request,$id){
         $job = Job::findOrFail($id);
         $job->update($request->all());
-        return redirect()->back()->with('message','Job  Sucessfully Updated!');
+        return redirect()->back()->with('message','The Job  has been Successfully Updated!');
 
     }
     public function applicant(){
@@ -75,13 +74,13 @@ class JobController extends Controller
 
 
         ]);
-        return redirect()->back()->with('message','Job posted successfully!');
+        return redirect()->back()->with('message','Job has been posted successfully!');
      }
      
      public function apply(Request $request,$id){
         $jobId = Job::find($id);
         $jobId->users()->attach(Auth::user()->id);
-        return redirect()->back()->with('message','Application sent!');
+        return redirect()->back()->with('message','Your Application has been sent to the employer!');
 
     }
 
@@ -100,7 +99,7 @@ class JobController extends Controller
                 return view('jobs.alljobs',compact('jobs'));
        }else{
 
-            $jobs = Job::latest()->paginate(10);
+            $jobs = Job::latest()->paginate(5);
             return view('jobs.alljobs',compact('jobs'));
     }
 

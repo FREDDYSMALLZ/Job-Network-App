@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <form class="row">
         <div class="col-md-3">
             @if(empty(Auth::user()->profile->avatar))
             <img src="{{asset('avatar/man.jpg')}}" width="100" style="width: 100%;">
@@ -24,9 +24,7 @@
             </div>
         </form>
 
-
         </div>
-
         <div class="col-md-5">
             @if(Session::has('message'))
                  <div class="alert alert-success">
@@ -35,12 +33,8 @@
             @endif
             <div class="card">
                 <div class="card-header">Update Your Profile</div>
-
-
                 <form action="{{route('profile.create')}}" method="POST">@csrf
-
-
-                <div class="card-body">
+                <form class="card-body">
                     <div class="form-group">
                         <label for="">Address</label>
                         <input type="text" class="form-control" name="address" value="{{Auth::user()->profile->address}}">
@@ -63,13 +57,7 @@
 
                 </div>
             </div>
-
-            
-
-        </div>
-
-
-</form>
+    </form>
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">About you</div>
@@ -88,14 +76,11 @@
                     <p>Please upload cover letter</p>
                 @endif
 
-
                 @if(!empty(Auth::user()->profile->resume))
                     <p><a href="{{Storage::url(Auth::user()->profile->resume)}}">Resume</a></p>
                 @else
                     <p>Please upload resume</p>
                 @endif
-
-
 
                 </div>
             </div>
@@ -109,10 +94,8 @@
                 </div>
             </div>
         </form>
-
             <br>
             <form action="{{route('resume')}}" method="POST" enctype="multipart/form-data">@csrf
-
             <div class="card">
                 <div class="card-header">Update resume</div>
                 <div class="card-body">
@@ -122,11 +105,7 @@
                 </div>
             </div>
         </form>
-
-
         </div>
-
     </div>
-</div>
 @endsection
 

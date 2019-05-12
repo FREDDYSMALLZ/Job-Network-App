@@ -23,9 +23,9 @@
                     <strong>{{ $errors->first('title') }}</strong>
                 </span>
                  @endif
-                
+
             </div>
-            
+
             <div class="form-group">
                 <label for="role">Description:</label>
             <textarea name="description" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" >{{ $job->description }}</textarea>
@@ -101,12 +101,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-dark">Submit</button>
             </div>
-             
-
-
-
         </div>
-    </form>
     </div>
     </div>
     </div>

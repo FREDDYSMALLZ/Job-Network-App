@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use Illuminate\Http\Request;
 use App\Profile;
 class UserController extends Controller
@@ -13,7 +14,7 @@ class UserController extends Controller
     public function users(Request $request)
     {
         $query = $request->get('query');
-        $users = \App\Job::where('title','like','%'.$query.'%')
+        $users = Job::where('title','like','%'.$query.'%')
                 ->orWhere('position','like','%'.$query.'%')
                 ->get();
         return response()->json($users);
@@ -64,7 +65,7 @@ class UserController extends Controller
             Profile::where('user_id', $user_id)->update([
                 'avatar' => $filename
             ]);
-            return redirect()->back()->with('message', 'The Profile picture was Successfully Updated!');
         }
+        return redirect()->back()->with('message', 'The Profile picture was Successfully Updated!');
     }
 }

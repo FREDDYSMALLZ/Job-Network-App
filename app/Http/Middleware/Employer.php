@@ -4,13 +4,15 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
+use Illuminate\Http\Request;
+
 class Employer
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  Request  $request
+     * @param Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)

@@ -25,10 +25,7 @@
             <br>
             @endforeach
             @else
-            
-            You're logged in 
-
-
+            Hello, Welcome. You have successfully Logged in.
             @endif
         </div>
     </div>
